@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Staff Dashboard</title>
+</head>
+<body>
+    <h2>Editing subject: {{ subject.upper() }}</h2>
+
+    <table border="1">
+        <tr>
+            <th>Roll No</th>
+            <th>Name</th>
+            <th>Class</th>
+            <th>{{ subject.upper() }}</th>
+            <th>Update</th>
+        </tr>
+
+        {% for student in students %}
+        <tr>
+            <form method="post" action="/update_marks">
+                <td>{{ student["roll_no"] }}</td>
+                <td>{{ student["name"] }}</td>
+                <td>{{ student["department"] }} - {{ student["class"] }}</td>
+                <td>
+                    <input type="number" name="mark" value="{{ student[subject] }}" required>
+                </td>
+                <td>
+                    <input type="hidden" name="id" value="{{ student["id"] }}">
+                    <button type="submit">Save</button>
+                </td>
+            </form>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <br>
+    <a href="/logout">Logout</a>
+</body>
+</html>

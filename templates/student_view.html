@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Marks</title>
+</head>
+<body>
+    <h2>Marks for {{ student["name"] }} ({{ student["roll_no"] }})</h2>
+
+    <table border="1">
+        <tr>
+            <th>Python</th>
+            <th>DSA</th>
+            <th>CNS</th>
+        </tr>
+        <tr>
+            <td>{{ student["python"] }}</td>
+            <td>{{ student["dsa"] }}</td>
+            <td>{{ student["cns"] }}</td>
+        </tr>
+    </table>
+
+    <br>
+    <a href="/">Home</a>
+</body>
+</html>
